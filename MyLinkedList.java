@@ -8,10 +8,10 @@ public class MyLinkedList{
     public Node prev(){
       return prev;
     }
-    public static void setNext(Node other){
+    public void setNext(Node other){
       next = other;
     }
-    public static void setPrev(Node other){
+    public void setPrev(Node other){
       prev = other;
     }
     public Integer getData(){
@@ -21,6 +21,7 @@ public class MyLinkedList{
       data = i;
     }
     public String toString(){
+
     }
   }
 }
