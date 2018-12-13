@@ -10,7 +10,7 @@ public class MyLinkedList{
     public Node(Integer dat){
       data = dat;
       next = null;
-      prev = null; 
+      prev = null;
     }
     public Node next(){
       return next;
@@ -35,5 +35,11 @@ public class MyLinkedList{
     public String toString(){
       return "" + data;
     }
+  }
+
+private Node start, end;
+private int length;
+  public MyLinkedList() {
+
   }
 }
