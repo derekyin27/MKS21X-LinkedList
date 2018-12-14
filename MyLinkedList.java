@@ -9,6 +9,9 @@ public class MyLinkedList{
     }
     public Node(Integer dat){
       data = dat;
+    }
+    public Node(Integer dat){
+      data = dat;
       next = null;
       prev = null;
     }
@@ -38,8 +41,30 @@ public class MyLinkedList{
   }
 
 private Node start, end;
-private int length;
-  public MyLinkedList() {
+private int size;
 
+  public MyLinkedList(){
+    size = 0;
   }
+
+  public int size(){
+    return size;
+  }
+
+  public boolean add(Integer value){
+    Node yeet = new Node(value);
+    size++;
+  }
+
+  public String toString(){
+    String str = "";
+    Node current = start;
+    for (int i = 0; i < size; i++){
+      str += current.getData();
+      current = current.next();
+    }
+    return str;
+  }
+
+  
 }
