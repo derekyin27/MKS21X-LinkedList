@@ -7,10 +7,7 @@ public class MyLinkedList{
       next = nextup;
       previous = prev;
     }
-    public Node(Integer dat){
-      data = dat;
-    }
-    public Node(Integer dat){
+    Node(Integer dat){
       data = dat;
       next = null;
       prev = null;
@@ -42,6 +39,7 @@ public class MyLinkedList{
 
 private Node start, end;
 private int size;
+//private
 
   public MyLinkedList(){
     size = 0;
@@ -54,6 +52,7 @@ private int size;
   public boolean add(Integer value){
     Node yeet = new Node(value);
     size++;
+    return true;
   }
 
   public String toString(){
@@ -66,5 +65,19 @@ private int size;
     return str;
   }
 
+  public Integer get(int index){
+    if (size <= 0)
+    throw new IndexOutOfBoundsException();
+    Node current = start;
+    for (int i = 0; i < index; i++){
+    current = current.next();
+  }
+  return current.getData();
+}
+
+public Integer set(int index, Integer value){
+  if (index > size)
+  throw new IndexOutOfBoundsException();
   
+}
 }
