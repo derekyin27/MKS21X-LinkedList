@@ -102,6 +102,14 @@ public Integer set(int index, Integer value){
 }
 
 public boolean contains(Integer value){
-  
+  Node current = start;
+  for (int i = 0; i < size; i++){
+    if (current.getData() == value)
+    return true;
+    else{
+      current = current.next();
+    }
+  }
+  return false;
 }
 }
