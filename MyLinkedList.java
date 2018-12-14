@@ -78,6 +78,30 @@ private int size;
 public Integer set(int index, Integer value){
   if (index > size)
   throw new IndexOutOfBoundsException();
+
+  Node finals = start;
+  for (int i = 0; i < index; i++){
+    finals = finals.next();
+  }
+  Integer toReturn = finals.getData();
+  finals.setData(value);
+
+  Node previously = start;
+  for (int i = 0; i < index - 1; i++){
+    previously = previously.next();
+  }
+  previously.setNext(finals);
+
+  Node nextly = start;
+  for (int i = 0; i < index + 1; i++){
+    nextly = nextly.next();
+  }
+  nextly.setPrev(finals);
+
+  return toReturn;
+}
+
+public boolean contains(Integer value){
   
 }
 }
