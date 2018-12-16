@@ -51,6 +51,8 @@ private int size;
 
   public boolean add(Integer value){
     Node yeet = new Node(value);
+    yeet.setPrev(end);
+    yeet.setNext(null);
     size++;
     return true;
   }
@@ -123,6 +125,28 @@ public int indexOf(Integer value){
   return -1;
 }
 
-
-
+public void add(int index, Integer value){
+  if (index > size || index < 0)
+  throw new IndexOutOfBoundsException();
+  if (index == size)
+  add(value);
+  Node news = new Node(value);
+  Node atIndex = start;
+  for (int i = 0; i < index; i++){
+    atIndex = atIndex.next();
+  }
+atIndex.prev().setNext(value);
+news.setPrev(atIndex.prev());
+news.setNext(atIndex);
+}
+ public Integer remove(int index){
+   if (index > size || index < 0)
+   throw new IndexOutOfBoundsException();
+   Node atIndex = start;
+   for (int i = 0; i < index; i++){
+     atIndex = atIndex.next();
+   }
+   atIndex.prev().setNext(atIndex.next());
+   atIndex.next().setPrev(atIndex.prev());
+ }
 }
