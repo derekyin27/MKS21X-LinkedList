@@ -146,7 +146,11 @@ news.setNext(atIndex);
    for (int i = 0; i < index; i++){
      atIndex = atIndex.next();
    }
+   Integer toReturn = atIndex.getData();
    atIndex.prev().setNext(atIndex.next());
    atIndex.next().setPrev(atIndex.prev());
+   return toReturn;
  }
+
+ public boolean remove(Integer value)
 }
