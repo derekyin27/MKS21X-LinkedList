@@ -112,4 +112,17 @@ public boolean contains(Integer value){
   }
   return false;
 }
+
+public int indexOf(Integer value){
+  Node current = start;
+  for (int i = 0; i < size; i++){
+    if (current.getData() == value)
+    return i;
+    current = current.next();
+  }
+  return -1;
+}
+
+
+
 }
