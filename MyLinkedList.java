@@ -58,13 +58,15 @@ private int size;
   }
 
   public String toString(){
-    String str = "";
+    String str = "[";
     Node current = start;
     for (int i = 0; i < size; i++){
-      str += current.getData();
+      if (current != null){
+      str += current.getData() + " ";
       current = current.next();
     }
-    return str;
+    }
+    return str + "]";
   }
 
   public Integer get(int index){
@@ -135,7 +137,7 @@ public void add(int index, Integer value){
   for (int i = 0; i < index; i++){
     atIndex = atIndex.next();
   }
-atIndex.prev().setNext(value);
+atIndex.prev().setNext(news);
 news.setPrev(atIndex.prev());
 news.setNext(atIndex);
 size++;
@@ -154,7 +156,7 @@ size++;
    return toReturn;
  }
 
- public boolean remove(Integer value){}
+ //public boolean remove(Integer value){}
 
   public void extend(MyLinkedList other){
     this.end.setNext(other.start);
