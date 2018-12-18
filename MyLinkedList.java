@@ -138,6 +138,7 @@ public void add(int index, Integer value){
 atIndex.prev().setNext(value);
 news.setPrev(atIndex.prev());
 news.setNext(atIndex);
+size++;
 }
  public Integer remove(int index){
    if (index > size || index < 0)
@@ -149,8 +150,16 @@ news.setNext(atIndex);
    Integer toReturn = atIndex.getData();
    atIndex.prev().setNext(atIndex.next());
    atIndex.next().setPrev(atIndex.prev());
+   size--;
    return toReturn;
  }
 
- public boolean remove(Integer value)
+ public boolean remove(Integer value){}
+
+  public void extend(MyLinkedList other){
+    this.end.setNext(other.start);
+    other.start.setPrev(this.end);
+    this.size += other.size;
+    other.size = 0;
+  }
 }
